@@ -12,6 +12,8 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*", cast=Csv())
 # Application definition
 INSTALLED_APPS = [
     # Project
+    "api",
+    "core",
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
