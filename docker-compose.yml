@@ -12,10 +12,6 @@ services:
       - "database:database"
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@database/postgres
-      # - DJANGO_SUPERUSER_USERNAME=samuel
-      # - DJANGO_SUPERUSER_PASSWORD=Admin123-
-      # - DJANGO_SUPERUSER_EMAIL=samuel@gmail.com
-      # - DJANGO_SUPERUSER_NAME=Samuel
       # - DEPLOY=true
   database:
     image: postgres:13-alpine
