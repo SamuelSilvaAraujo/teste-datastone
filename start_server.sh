@@ -10,7 +10,7 @@ fi
 
 if [ -n "$DEPLOY" ]; then
     # Gunicorn
-    gunicorn advocacy.wsgi:application --bind 0.0.0.0:8000
+    gunicorn datastone.wsgi:application --bind 0.0.0.0:8000
 else
     # Server
     python3 manage.py runserver 0.0.0.0:8000

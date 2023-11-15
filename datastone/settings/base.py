@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from decouple import Csv, config
-from dj_database_url import parse as dburl
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -61,9 +60,11 @@ WSGI_APPLICATION = "datastone.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-DEFAULT_DATABASE_URL = "postgresql://postgres:postgres@database/postgres"
 DATABASES = {
-    "default": config("DATABASE_URL", default=DEFAULT_DATABASE_URL, cast=dburl)
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
 
