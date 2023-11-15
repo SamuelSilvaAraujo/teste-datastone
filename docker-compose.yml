@@ -8,5 +8,6 @@ services:
       - .:/var/www/
     ports:
       - "8000:8000"
-    environment:
-      - DEPLOY=true
+    # environment:
+    
+    # - DEPLOY=true

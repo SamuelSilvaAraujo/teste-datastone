@@ -1,3 +1,4 @@
+import requests
 from rest_framework import serializers
 
 COIN_CHOICES = (
@@ -26,4 +27,12 @@ class ConverterSerializer(serializers.Serializer):
         return super().validate(attrs)
 
     def get_result(self, obj):
-        return 0
+        from_coin = obj.get("from_coin")
+        to_coin = obj.get("to_coin")
+        url = f"https://economia.awesomeapi.com.br/last/{to_coin}-{from_coin}"
+        r = requests.get(url=url)
+        data = r.json().get(f"{to_coin}{from_coin}", None)
+        if data:
+            return data["high"]
+        else:
+            return None
